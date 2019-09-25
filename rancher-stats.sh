@@ -22,7 +22,7 @@ echo "Rancher version: $(docker exec ${DOCKER_ID} kubectl get settings server-ve
 echo "Rancher id: $(docker exec ${DOCKER_ID} kubectl get settings install-uuid --no-headers -o custom-columns=id:value)"
 echo ""
 
-docker exec ${DOCKER_ID} kubectl get clusters -o custom-columns=Cluster\ Id:metadata.name,Name:spec.displayName,K8s\ Version:spec.rancherKubernetesEngineConfig.kubernetesVersion,Created:metadata.creationTimestamp,Nodes:status.appliedSpec.rancherKubernetesEngineConfig.nodes[*].address
+docker exec ${DOCKER_ID} kubectl get clusters -o custom-columns=Cluster\ Id:metadata.name,Name:spec.displayName,K8s\ Version:status.version.gitVersion,Provider:status.driver,Created:metadata.creationTimestamp,Nodes:status.appliedSpec.rancherKubernetesEngineConfig.nodes[*].address
 
 CLUSTER_IDS=$(docker exec ${DOCKER_ID} kubectl get clusters --no-headers -o custom-columns=id:metadata.name)
 
