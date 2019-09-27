@@ -4,7 +4,7 @@ echo "Report run on `date`"
 echo ""
 
 # Get docker id for rancher single node install
-DOCKER_ID=$(docker ps | grep "rancher/rancher:v2" | cut -d' ' -f1)
+DOCKER_ID=$(docker ps | grep "rancher/rancher:" | cut -d' ' -f1)
 
 if [ -z "$DOCKER_ID" ]
 then
