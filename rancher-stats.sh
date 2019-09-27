@@ -9,7 +9,7 @@ DOCKER_ID=$(docker ps | grep "rancher/rancher:v2" | cut -d' ' -f1)
 if [ -z "$DOCKER_ID" ]
 then
   # Get docker id for rancher ha install
-  DOCKER_ID=$(docker ps | grep "k8s_rancher_rancher" | cut -d' ' -f1)
+  DOCKER_ID=$(docker ps | grep "k8s_rancher_rancher" | cut -d' ' -f1 | head -1)
 
   if [ -z "$DOCKER_ID" ]
   then
